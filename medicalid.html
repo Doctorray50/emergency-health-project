@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>My Medical ID | RapidAid</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- QR Code library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+  <header class="main-header">
+    <div class="logo">🚑 RapidAid</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="triage.html">Triage</a>
+      <a href="findcare.html">Find Care</a>
+    </nav>
+  </header>
+
+  <main class="medical-container">
+    <div class="medical-grid">
+      <!-- Form -->
+      <section class="medical-form card">
+        <h2>My Medical ID — Edit</h2>
+
+        <label>
+          Full name
+          <input id="mi-name" type="text" placeholder="Jane Doe" />
+        </label>
+
+        <label>
+          Date of birth
+          <input id="mi-dob" type="date" />
+        </label>
+
+        <label>
+          Blood group
+          <input id="mi-blood" type="text" placeholder="O+, A-, etc." />
+        </label>
+
+        <label>
+          Allergies
+          <textarea id="mi-allergies" rows="2" placeholder="Penicillin, Nuts..."></textarea>
+        </label>
+
+        <label>
+          Medications
+          <textarea id="mi-meds" rows="2" placeholder="Warfarin, Lisinopril..."></textarea>
+        </label>
+
+        <label>
+          Existing conditions
+          <textarea id="mi-conditions" rows="2" placeholder="Diabetes, Asthma..."></textarea>
+        </label>
+
+        <label>
+          Emergency contact (name)
+          <input id="mi-ec-name" type="text" placeholder="John Doe" />
+        </label>
+
+        <label>
+          Emergency contact (phone)
+          <input id="mi-ec-phone" type="tel" placeholder="+2348012345678" />
+        </label>
+
+        <div class="form-actions">
+          <button id="mi-save" class="btn-primary">Save</button>
+          <button id="mi-clear" class="btn-secondary">Clear</button>
+        </div>
+      </section>
+
+      <!-- Preview Card -->
+      <aside class="medical-preview card" id="preview-card" aria-live="polite">
+        <div class="preview-header">
+          <div>
+            <div class="hospital-tag">EMERGENCY</div>
+            <h3 id="pv-name">—</h3>
+            <div id="pv-dob" class="muted">DOB —</div>
+          </div>
+
+          <div class="header-actions">
+            <button id="toggle-theme" class="icon-btn" title="Toggle theme">🌗</button>
+            <button id="show-emergency" class="btn-danger">Show Emergency</button>
+          </div>
+        </div>
+
+        <div class="preview-body">
+          <div class="pv-row"><strong>Blood:</strong> <span id="pv-blood">—</span></div>
+          <div class="pv-row"><strong>Allergies:</strong> <span id="pv-allergies">—</span></div>
+          <div class="pv-row"><strong>Medications:</strong> <span id="pv-meds">—</span></div>
+          <div class="pv-row"><strong>Conditions:</strong> <span id="pv-conditions">—</span></div>
+
+          <div class="pv-contact">
+            <div><strong>Emergency:</strong></div>
+            <div id="pv-ec"><span>—</span></div>
+            <div class="pv-contact-actions">
+              <a id="pv-call" href="#" class="btn-secondary">Call</a>
+              <button id="pv-copy" class="btn-secondary">Copy</button>
+            </div>
+          </div>
+
+          <div class="qr-wrap">
+            <div id="qrcode"></div>
+            <div class="qr-label">Scan to view details</div>
+          </div>
+
+          <div class="preview-footer">
+            <button id="mi-export" class="btn-secondary">Export JSON</button>
+            <button id="mi-print" class="btn-secondary">Print</button>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Emergency Full Screen Overlay -->
+  <div id="emergency-overlay" class="emergency-overlay hidden" role="dialog" aria-modal="true">
+    <div class="emergency-card">
+      <h1 id="em-name-large">—</h1>
+      <div class="em-row"><strong>Blood:</strong> <span id="em-blood">—</span></div>
+      <div class="em-row"><strong>Allergies:</strong> <span id="em-allergies">—</span></div>
+      <div class="em-row"><strong>Medications:</strong> <span id="em-meds">—</span></div>
+      <div class="em-row"><strong>Conditions:</strong> <span id="em-conditions">—</span></div>
+      <div class="em-row"><strong>Emergency contact:</strong> <a id="em-call" href="#">—</a></div>
+
+      <div class="em-actions">
+        <button id="em-close" class="btn-secondary">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p class="muted">&copy; 2025 RapidAid Emergency Health.</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
+

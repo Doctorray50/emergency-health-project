@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find Care | RapidAid Emergency Health</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Mapbox CSS -->
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
+</head>
+<body>
+  <header class="main-header">
+    <div class="logo">🚑 RapidAid</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="triage.html">Triage</a>
+      <a href="medicalid.html">My Medical ID</a>
+    </nav>
+  </header>
+
+  <main class="findcare-container">
+    <h1>Find Nearby Hospitals</h1>
+    <p>Allow location access to find emergency services near you.</p>
+
+    <button onclick="getLocation()">📍 Find My Location</button>
+
+    <div id="location-output" class="location-output"></div>
+
+    <!-- Map Container -->
+    <div id="map" class="map-container hidden"></div>
+
+    <div id="hospital-list" class="hospital-list hidden">
+      <h2>Nearby Hospitals</h2>
+      <ul id="hospital-items"></ul>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 RapidAid Emergency Health.</p>
+  </footer>
+
+  <!-- Mapbox JS -->
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+  <script src="js/script.js"></script>
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet" />
+
+</body>
+</html>
+

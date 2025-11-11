@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Triage | RapidAid Emergency Health</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="main-header">
+    <div class="logo">🚑 RapidAid</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="findcare.html">Find Care</a>
+      <a href="medicalid.html">My Medical ID</a>
+    </nav>
+  </header>
+
+  <main class="triage-container">
+    <h1>Quick Health Triage</h1>
+    <p>Answer a few quick questions to assess your condition.</p>
+
+    <div id="question-box" class="question-box">
+      <h2 id="question">Do you have chest pain?</h2>
+      <div class="triage-buttons">
+        <button onclick="answerTriage(true)">Yes</button>
+        <button onclick="answerTriage(false)">No</button>
+      </div>
+    </div>
+
+    <div id="result-box" class="result-box hidden">
+      <h2 id="result-title"></h2>
+      <p id="result-message"></p>
+      <a href="index.html" class="btn-secondary">🏠 Back to Home</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 RapidAid Emergency Health.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

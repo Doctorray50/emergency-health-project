@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Find Care | RapidAid</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-o9N1j7kQkM1Q7jv+4sA9r3b6d2b89Z3s5mGkGk3fQnY=" crossorigin=""/>
+  <style>
+    /* quick overrides for the map page */
+    .findcare-container { max-width: 980px; margin: 1.8rem auto; padding: 1rem; }
+    #map { width: 100%; height: 420px; border-radius: 12px; border: 2px solid #dc2626; margin-top: 1rem; }
+    .controls { display:flex; gap:8px; flex-wrap:wrap; margin-top:0.8rem; }
+    .hospital-list { margin-top:1rem; text-align:left; }
+    .hospital-item { display:flex; justify-content:space-between; align-items:center; gap:8px;
+                     padding:.8rem; border-radius:10px; background:#fff; box-shadow:0 6px 16px rgba(2,6,23,0.04);
+                     margin-bottom:8px; }
+    .hospital-item .meta { font-size:0.95rem; color:#111827; }
+    .hospital-item .actions { display:flex; gap:6px; }
+    .small-muted { font-size:0.85rem; color:#6b7280; }
+    .pill { padding:6px 8px; border-radius:8px; background:#f3f4f6; font-weight:600; }
+    @media (max-width:760px) { #map { height: 360px; } }
+  </style>
+</head>
+<body>
+  <header class="main-header">
+    <div class="logo">🚑 RapidAid</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="triage.html">Triage</a>
+      <a href="medicalid.html">My Medical ID</a>
+    </nav>
+  </header>
+
+  <main class="findcare-container">
+    <h1>Find Nearby Hospitals</h1>
+    <p class="small-muted">Allow location access so we can show the nearest emergency facilities.</p>
+
+    <div class="controls">
+      <button id="btn-locate" class="btn-primary">📍 Find My Location</button>
+      <button id="btn-share" class="btn-secondary">Share My Location</button>
+      <button id="btn-copy" class="btn-secondary">Copy Coordinates</button>
+      <button id="btn-refresh" class="btn-secondary">Refresh</button>
+      <div id="status" class="small-muted" style="align-self:center;">&nbsp;</div>
+    </div>
+
+    <div id="map" class="hidden"></div>
+
+    <div id="hospital-list" class="hospital-list hidden">
+      <h2>Nearby Hospitals</h2>
+      <div id="hospital-items"></div>
+    </div>
+  </main>
+
+  <footer>
+    <p class="muted">&copy; 2025 RapidAid Emergency Health.</p>
+  </footer>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-QV+v6rV6Gg/6kEJgU7dCk0zAwqN1r9g7N9Z3DkJjC3Y=" crossorigin=""></script>
+
+  <!-- Our findcare logic -->
+  <script src="script.js"></script>
+</body>
+</html>
+
+
